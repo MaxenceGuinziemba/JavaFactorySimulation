@@ -1,0 +1,10 @@
+fr.tp.inf112.projects.canvas.controller
+fr.tp.inf112.projects.canvas.model
+fr.tp.inf112.projects.canvas.model.impl
+fr.tp.inf112.projects.canvas.view
+fr.tp.inf112.projects.robotsim.controller
+fr.tp.inf112.projects.robotsim.model
+fr.tp.inf112.projects.robotsim.model.exception
+fr.tp.inf112.projects.robotsim.model.impl
+fr.tp.inf112.projects.robotsim.test
+fr.tp.inf112.projects.robotsim.view

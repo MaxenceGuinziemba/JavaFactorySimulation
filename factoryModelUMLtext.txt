@@ -1,0 +1,162 @@
+@startuml
+' Interfaces
+interface Visitable {
+    +getVisit(): Position
+    +getxVisit(): int
+    +getyVisit(): int
+}
+
+interface Figure {
+}
+
+interface Canvas {
+}
+
+interface Observable {
+    +addObserver(Observer o): boolean
+    +removeObserver(Observer o): boolean
+    +notifyObservers(): void
+}
+
+' Classes
+class Position implements Visitable {
+    -xCoordinate: int
+    -yCoordinate: int
+    +setxCoordinate(x: int): void
+    +setyCoordinate(y: int): void
+    +setCoordinate(x: int, y: int): void
+    +getName(): String
+}
+
+abstract class Component implements Figure, Visitable, Serializable {
+    -name: String
+    -position: Position
+    -width: int
+    -height: int
+    -style: Style
+    -shape: Shape
+    -factory: Factory
+    -obstacle: boolean
+    +getName(): String
+    +getxCoordinate(): int
+    +getyCoordinate(): int
+    +getWidth(): int
+    +getHeight(): int
+    +getStyle(): Style
+    +getShape(): Shape
+    +getFactory(): Factory
+    +behave(): void
+}
+
+class Robot extends Component {
+    -speed: int
+    -battery: double
+    -capacity: int
+    -toVisit: List<Visitable>
+    -currentVisit: int
+    -needCharging: boolean
+    -held: boolean
+    -hasPathFinder: boolean
+    -pathFinder: FactoryPathFinder
+    -currentPath: Path
+    +move(visitable: Visitable): void
+    +setBattery(battery: double): void
+    +getBattery(): double
+    +behave(): void
+}
+
+class Factory extends Component implements Canvas, Observable {
+    -components: List<Component>
+    -robots: List<Robot>
+    -observers: Set<Observer>
+    -simulationRunning: boolean
+    +addComponent(component: Component): void
+    +addRobot(robot: Robot): void
+    +getComponents(): List<Component>
+    +getRobots(): List<Robot>
+    +notifyObservers(): void
+}
+
+class Room extends Component {
+    -doors: List<Door>
+    +isOnBorder(x: int, y: int): boolean
+    +getDoors(): List<Door>
+}
+
+class Door extends Component {
+    -openState: boolean
+    -isVertical: boolean
+    -parentRoom: Room
+    +open(): void
+    +close(): void
+    +isOpen(): boolean
+    +getParentRoom(): Room
+    +behave(): void
+}
+
+class ProductionMachine extends Component {
+    -productionRate: int
+    -activeState: boolean
+    -parentRoom: Room
+    +activate(): void
+    +deactivate(): void
+    +getProductionRate(): int
+    +getParentRoom(): Room
+    +behave(): void
+}
+
+class ChargingStation extends Component {
+    -chargingRobots: Set<Robot>
+    -chargingRate: double
+    +connectRobot(robot: Robot): boolean
+    +disconnectRobot(robot: Robot): boolean
+    +getChargingRate(): double
+    +behave(): void
+}
+
+class Conveyor extends Component {
+    -conveyRate: int
+    -activeState: boolean
+    +isActive(): boolean
+    +activate(): void
+    +deactivate(): void
+    +getConveyRate(): int
+    +behave(): void
+}
+
+class Path {
+    -path: List<Position>
+    -target: Visitable
+    -currentIndex: int
+    +getPath(): List<Position>
+    +getTarget(): Visitable
+    +getCurrentIndex(): int
+    +setCurrentIndex(idx: int): void
+    +getCurrentPosition(): Position
+    +hasNext(): boolean
+    +hasPrevious(): boolean
+    +getNextPosition(): Position
+    +advance(): void
+    +stepBack(): void
+}
+
+class AStarGraphFactoryPathFinder implements FactoryPathFinder {
+    -robot: Robot
+    -graph: Graph<Position, DefaultWeightedEdge>
+    +findPath(target: Visitable): Path
+    +getGraph(): Graph<Position, DefaultWeightedEdge>
+    +buildFactoryGraph(factory: Factory, robotWidth: int, robotHeight: int): Graph<Position, DefaultWeightedEdge>
+}
+
+class DijkstraGraphFactoryPathFinder implements FactoryPathFinder {
+    -robot: Robot
+    -graph: Graph<Position, DefaultWeightedEdge>
+    +findPath(target: Visitable): Path
+    +getGraph(): Graph<Position, DefaultWeightedEdge>
+    +buildFactoryGraph(factory: Factory, robotWidth: int, robotHeight: int): Graph<Position, DefaultWeightedEdge>
+}
+
+interface FactoryPathFinder {
+    +findPath(target: Visitable): Path
+}
+@enduml

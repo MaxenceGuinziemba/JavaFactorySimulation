@@ -1,0 +1,16 @@
+# Logs
+*.log
+
+# Building Files
+bin
+*.class
+*_sources.txt
+
+# Dependencies' sources (only keeping useful .jar)
+lib/jgrapht-1.5.2/
+
+# MacOS related
+.DS_Store
+
+# Program output(s)
+/img/graph.png

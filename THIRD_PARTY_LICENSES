@@ -1,0 +1,37 @@
+# Third-Party Licenses
+
+This repository includes the following third-party dependencies. Below are their respective licenses:
+
+---
+
+## JGraphT
+
+JGraphT is licensed under a dual license:
+
+1. GNU Lesser General Public License (LGPL) 2.1
+   See the full license text in `3rd-party-licences/jgrapht-license-LGPL.txt`.
+
+2. Eclipse Public License (EPL) 2.0
+   See the full license text in `3rd-party-licenses/jgrapht-license-EPL.txt`.
+
+JGraphT libraries included (inside lib/):
+- `jgrapht-core-1.5.2.jar`
+- `jgrapht-io-1.5.2.jar`
+
+### Dependencies of JGraphT
+
+The `3rd-party-licenses` directory also contains the licenses of the dependencies of JGraphT.
+
+---
+
+## Canvas
+
+Canvas is also included as a dependency. While this project have no specific
+license, its author is Dominique Blouin (dominique.blouin@telecom-paris.fr),
+and we also implemented some of its components.
+
+---
+
+## Project License
+
+This repository also includes a project to which we have contributed. The project is licensed under its own license. Please refer to the project documentation for more details.
