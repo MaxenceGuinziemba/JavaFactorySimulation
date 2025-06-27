@@ -1,5 +1,7 @@
 # INF112 - Usine Projet JAVA
 
+Ce projet, réalisé dans le cadre du cours de programmation orientée objet à Telecom Paris (INF112), simule et met en oeuvre une usine contenant diverses composants, dont des robots. Ces robots ont pour taches de se mouvoir de manière autonome en suivant une liste de visite définie à l'avance.
+
 > team-24 - Maxence GUINZIEMBA-PROKOP & Arsene MALLET
 
 > [!CAUTION]
