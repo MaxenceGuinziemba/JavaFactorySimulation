@@ -10,8 +10,6 @@ Ce projet, réalisé dans le cadre du cours de programmation orientée objet à 
 > [!IMPORTANT]
 > An english version of this file can be found [here](./README_EN.md)
 
-Ce projet, réalisé dans le cadre du cours de programmation orientée objet à *Telecom Paris* (INF112), simule et met en oeuvre une usine contenant diverses composants, dont des robots. Ces robots ont pour taches de se mouvoir de manière autonome en suivant une liste de visite définie à l'avance.
-
 ## Table des matières
 
 - [Objectifs du projet](#objectifs-du-projet)
